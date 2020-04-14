@@ -1,2 +1,2 @@
-# project1-random-quotes
+# Techdegree Project 1
 A Random Mitch Hedberg quote generator
