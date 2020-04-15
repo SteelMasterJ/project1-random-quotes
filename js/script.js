@@ -23,7 +23,7 @@ const quotes = [
     year: 1999
   },
   {
-    quote : "On a traffic light green means 'go' and yellow means 'yield', but on a banana it's just the opposite. Green means 'hold on,' yellow means 'go ahead,' and red means, 'where the hell did you get that banana at?'",
+    quote : "On a traffic light green means 'go' and yellow means 'yield', but on a banana it's just the opposite. Green means 'hold on,' yellow means 'go ahead,' and red means, 'where did you get that banana at?'",
     source: "Mitch Hedberg",
     citation: `<a href="https://en.wikipedia.org/wiki/Strategic_Grill_Locations">Strategic Grill Locations</a>`,
     year: 1999
@@ -83,19 +83,13 @@ const quotes = [
     year: 2005
   },
   {
-    quote: "Steam rollers run shit over to make sure it's good. Like if they want to test a product, they'll run over it with a steam roller. How do you know the steam roller's good? Who ran over the steam roller?",
+    quote: "Steam rollers run stuff over to make sure it's good. Like if they want to test a product, they'll run over it with a steam roller. How do you know the steam roller's good? Who ran over the steam roller?",
     source: "Mitch Hedberg",
     citation: `<a href="https://en.wikipedia.org/wiki/Do_You_Believe_in_Gosh%3F">Do You Believe in Gosh?</a>`,
     year: 2005
   },
   {
-    quote: "My belt holds up my pants and my pants have belt loops that hold up the belt. What the fuck’s really goin on down there? Who is the real hero?",
-    source: "Mitch Hedberg",
-    citation: `<a href="https://en.wikipedia.org/wiki/Do_You_Believe_in_Gosh%3F">Do You Believe in Gosh?</a>`,
-    year: 2005
-  },
-  {
-    quote: "I have a vest. If I had my arms cut off, it would be a jacket.",
+    quote: "My belt holds up my pants and my pants have belt loops that hold up the belt. What’s really going on down there? Who is the real hero?",
     source: "Mitch Hedberg",
     citation: `<a href="https://en.wikipedia.org/wiki/Do_You_Believe_in_Gosh%3F">Do You Believe in Gosh?</a>`,
     year: 2005
@@ -108,12 +102,6 @@ const quotes = [
   },
   {
     quote: "A burrito is a sleeping bag for ground beef.",
-    source: "Mitch Hedberg",
-    citation: `<a href="https://en.wikipedia.org/wiki/Do_You_Believe_in_Gosh%3F">Do You Believe in Gosh?</a>`,
-    year: 2005
-  },
-  {
-    quote: "Jamaican Air -- Every flight is the red-eye!",
     source: "Mitch Hedberg",
     citation: `<a href="https://en.wikipedia.org/wiki/Do_You_Believe_in_Gosh%3F">Do You Believe in Gosh?</a>`,
     year: 2005
@@ -145,23 +133,21 @@ function getRandomQuote(){
 function printQuote() {
   randomObject = getRandomQuote()
   htmlString = `<p class="quote"> ${randomObject.quote} </p>` + `<p class="source"> ${randomObject.source}`;
+  if (randomObject.citation) {
+    htmlString += `<span class="citation"> ${randomObject.citation} </span>`;
+  }
+  if (randomObject.year) {
+    htmlString += `<span class="year"> ${randomObject.year} </span></p>`;
+  } else {
+    htmlString += '</p>';
+  }
+  document.getElementById('quote-box').innerHTML = htmlString;
   return htmlString;
 }
 console.log(printQuote());
 
-
-if (randomObject.citation) {
-  htmlString += `<span class="citation"> ${randomObject.citation} </span>`;
-}
-if (randomObject.year) {
-  htmlString += `<span class="year"> ${randomObject.year} </span></p>`;
-} else {
-  htmlString += '</p>';
-}
-
 console.log(htmlString);
 
-document.getElementById('quote-box').innerHTML = htmlString;
 
 /***
  * click event listener for the print quote button
