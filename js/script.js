@@ -8,7 +8,7 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ * `quotes` array Mitch Hedberg quotes, they all have citations and years, except for the final element in the quotes array
 ***/
 const quotes = [
   { quote : "I bought a $7 pen because I always lose pens and I got sick of not caring.",
@@ -119,19 +119,19 @@ const quotes = [
 ];
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function - This gets a random object from the quotes array and returns it.
 ***/
-function getRandomQuote(){
+function getRandomQuote(quotes){
   let randomNumber = Math.floor(Math.random() * quotes.length)
   return quotes[randomNumber];
 }
 
 //console.log(getRandomQuote());
 /***
- * `printQuote` function
+ * `printQuote` function - This calls teh getRandomQuote function and adds in the HTML script so it prints to the page when the page is loaded and whenever the get quote button is pushed
 ***/
 function printQuote() {
-  randomObject = getRandomQuote()
+  randomObject = getRandomQuote(quotes);
   htmlString = `<p class="quote"> ${randomObject.quote} </p>` + `<p class="source"> ${randomObject.source}`;
   if (randomObject.citation) {
     htmlString += `<span class="citation"> ${randomObject.citation} </span>`;
@@ -144,9 +144,9 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = htmlString;
   return htmlString;
 }
-console.log(printQuote());
+//console.log(printQuote());  these lines were just for testing
 
-console.log(htmlString);
+//console.log(htmlString);
 
 
 /***
