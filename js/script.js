@@ -123,20 +123,45 @@ const quotes = [
     source: "Mitch Hedberg",
     citation: `<a href="https://www.youtube.com/watch?v=NZJ4nyFWNTE">Just For Laughs: On The Edge</a>`,
     year: 2002
+  },
+  {
+    quote: "I would imagine if you could understand Morse Code, a tap dancer would drive you crazy.",
+    source: "Mitch Hedberg"
   }
 ];
 
 /***
  * `getRandomQuote` function
 ***/
+function getRandomQuote(){
+  let randomNumber = Math.floor(Math.random() * quotes.length)
+  return quotes[randomNumber];
+}
 
-
-
+//console.log(getRandomQuote());
 /***
  * `printQuote` function
 ***/
+function printQuote() {
+  randomObject = getRandomQuote()
+  htmlString = `<p class="quote"> ${randomObject.quote} </p>` + `<p class="source"> ${randomObject.source}`;
+  return htmlString;
+}
+console.log(printQuote());
 
 
+if (randomObject.citation) {
+  htmlString += `<span class="citation"> ${randomObject.citation} </span>`;
+}
+if (randomObject.year) {
+  htmlString += `<span class="year"> ${randomObject.year} </span></p>`;
+} else {
+  htmlString += '</p>';
+}
+
+console.log(htmlString);
+
+document.getElementById('quote-box').innerHTML = htmlString;
 
 /***
  * click event listener for the print quote button
