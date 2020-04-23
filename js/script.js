@@ -115,6 +115,12 @@ const quotes = [
   {
     quote: "I would imagine if you could understand Morse Code, a tap dancer would drive you crazy.",
     source: "Mitch Hedberg"
+  },
+  {
+    quote: `I like to take a toothpick and throw it in the forest and say "You're home!"`,
+    source: "Mitch Hedberg",
+    citation: `<a href="https://www.youtube.com/watch?v=nu4f1QYDD_0&feature=emb_title">Just For Laughs</a>`,
+    year: 2004
   }
 ];
 
@@ -128,7 +134,7 @@ function getRandomQuote(quotes){
 
 //console.log(getRandomQuote());
 /***
- * `printQuote` function - This calls teh getRandomQuote function and adds in the HTML script so it prints to the page when the page is loaded and whenever the get quote button is pushed
+ * `printQuote` function - This calls the getRandomQuote function and adds in the HTML script so it prints to the page when the page is loaded and whenever the get quote button is pushed
 ***/
 function printQuote() {
   randomObject = getRandomQuote(quotes);
@@ -148,7 +154,7 @@ function printQuote() {
 
 //console.log(htmlString);
 
-
+printQuote();
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
